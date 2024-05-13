@@ -38,5 +38,7 @@ contract AraJean {
 
 # Code Explaination 
 requireExample() uses require() to ensure that the input number is less than 10.
+
 assertExample() uses assert() to ensure that the input number is not 0.
+
 revertExample() uses revert() to revert the transaction with a custom message if the input number is even.
