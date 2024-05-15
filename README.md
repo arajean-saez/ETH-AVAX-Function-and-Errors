@@ -8,37 +8,9 @@ To run this program, you can use Remix, an online Solidity IDE. To get started, 
 
 Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., AraJean.sol). Copy and paste the following code into the file:
 
-// SPDX-License-Identifier: MIT
-pragma solidity >=0.6.12 <0.9.0;
+## Code Explaination
+require(): Prior to carrying out the balance of the function, the require statement is used to verify inputs or conditions. The function is stopped and any state modifications are undone if the condition passed to require evaluates to false. It is frequently used to verify prerequisites or input parameters before moving on.
 
-contract AraJean {
-    uint public x = 10;
-    uint public y = 20;
+assert(): Conditions that should never be false are checked for using the assert statement. Assert is used for circumstances that point to a contract bug, as opposed to require, which is used for inputs or conditions that might be expected but invalid. An assert statement signals a critical error, which stops the contract's execution and reverses all changes if it evaluates to false.
 
-    function requireExample(uint _num) public {
-        // Require that _num is less than 10
-        require(_num < 10, "Number must be less than 10");
-        x = _num;
-    }
-
-    function assertExample(uint _num) public {
-        // Assert that _num is not equal to 0
-        assert(_num != 0);
-        y = _num;
-    }
-
-    function revertExample(uint _num) public {
-        // Revert with a custom message if _num is even
-        if (_num % 2 == 0) {
-            revert("Number must be odd");
-        }
-        y = _num;
-    }
-}
-
-# Code Explaination 
-requireExample() uses require() to ensure that the input number is less than 10.
-
-assertExample() uses assert() to ensure that the input number is not 0.
-
-revertExample() uses revert() to revert the transaction with a custom message if the input number is even.
+revert(): To reverse the current call and give an explanation, use the revert statement. It's usually used to indicate with a personalized error message when a requirement isn't satisfied. Revert, in contrast to require, does not use up all of the gas allocated for the transaction, enabling more intricate error management.
